@@ -1,0 +1,37 @@
+﻿@using PlanB.Models.Forms.Common;
+@using System.Web;
+
+@{
+    ViewData["Title"] = "Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model FormViewModel
+
+<h2>@Model.Form.FriendlyName</h2>
+@if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Header))
+{
+    <h3>@Model.Form.GetCurrentPage().Header</h3>
+
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Content))
+{
+    @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
+
+}
+
+@using (Html.BeginForm("Do", "Forms", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.InstanceId);
+
+    @if (!Model.Form.AnotherFlag)
+    {
+        <p>Form has started but another flag is false</p>
+    }
+    else
+    {
+        <p>Form has started and another flag is true</p>
+    }
+    <input type="submit" value="Continue" />
+}

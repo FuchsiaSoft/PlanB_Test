@@ -1,5 +1,6 @@
 ﻿using Markdig;
 using Microsoft.AspNetCore.Html;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,21 @@ namespace PlanB.Models.Forms.Common
 
                 CurrentPageIndex = Pages.FindIndex(p => p.GetType() == nextPageType);
             }
+        }
+
+        public virtual string Serialize()
+        {
+            string result = JsonConvert.SerializeObject(this, Formatting.None, new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            });
+
+            return result;
+        }
+
+        public IPage GetCurrentPage()
+        {
+            return Pages[CurrentPageIndex];
         }
     }
 }

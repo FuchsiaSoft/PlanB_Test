@@ -1,0 +1,22 @@
+﻿@using PlanB.Models.Forms.Common;
+@using System.Reflection;
+@using System.ComponentModel.DataAnnotations;
+@using PlanB.Models.Forms.Common.ControlAttributes;
+
+@model PageBase
+
+@{
+    IEnumerable<PropertyInfo> properties =
+        this.GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes()
+                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)));
+
+    foreach (var propInfo in properties)
+    {
+
+    }
+
+    IFormatProvider formatProvider =
+        new System.Globalization.CultureInfo("en-US");
+    <span class="currency">@Model.ToString("C", formatProvider)</span>
+}

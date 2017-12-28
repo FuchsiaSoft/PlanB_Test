@@ -12,7 +12,7 @@ namespace PlanB.Models.Forms.Common
 
         public abstract string Header { get; }
 
-        public string Content => Markdown.ToHtml(_contentMarkdown);
+        public string Content => Markdown.ToHtml(_contentMarkdown ?? "");
 
         public string ValidationMessage { get; set; }
 
