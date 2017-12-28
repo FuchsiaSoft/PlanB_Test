@@ -22,5 +22,9 @@ namespace PlanB.Models.Forms.Common
         void Init();
 
         void CheckStateAndGetNextPage();
+
+        string Serialize();
+
+        IPage GetCurrentPage();
     }
 }

@@ -1,0 +1,56 @@
+﻿@using PlanB.Models.Forms.Common;
+@using System.Web;
+@using System.Reflection;
+@using PlanB.Models.Forms.Common.ControlAttributes;
+
+@{
+    ViewData["Title"] = "Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model FormViewModel
+
+<h2>@Model.Form.FriendlyName</h2>
+@if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Header))
+{
+    <h3>@Model.Form.GetCurrentPage().Header</h3>
+
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Content))
+{
+    @Html.Raw(HttpUtility.HtmlDecode(Model.Form.GetCurrentPage().Content))
+
+}
+
+@using (Html.BeginForm("Do", "Forms", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.InstanceId);
+
+    IEnumerable<PropertyInfo> properties =
+        Model.Form.GetCurrentPage().GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes()
+                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)));
+
+    foreach (var propInfo in properties)
+    {
+        var attribute = propInfo.GetCustomAttributes()
+            .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
+
+        if (attribute is TextBoxControlAttribute)
+        {
+            var textAttribute = (TextBoxControlAttribute)attribute;
+            <div class="container">
+                <h3>@textAttribute.Question</h3>
+                <div class="row">
+                    @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                </div>
+                <div class="row">
+                    <input type="text"
+                           name="@propInfo.Name" />
+                </div>
+            </div>
+        }
+    }
+    <input type="submit" value="Continue" />
+}

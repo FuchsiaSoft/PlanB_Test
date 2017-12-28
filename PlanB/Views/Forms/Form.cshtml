@@ -6,37 +6,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IForm
+@model FormViewModel
 
-<h2>@Model.FriendlyName</h2>
+<h2>@Model.Form.FriendlyName</h2>
 
 <br />
 
-<div class="row">
+<div class="container">
     <div class="col-md-4">
-        @if (!Model.HasStarted)
+        @if (!Model.Form.HasStarted)
         {
-            <form asp-action="GetPage" method="post">
-                @Html.Raw(HttpUtility.HtmlDecode(Model.IntroContent))
+            <form asp-action="Do" method="post">
+                @Html.HiddenFor(Model => Model.InstanceId)
+                @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
                 <input type="submit" value="Start" />
             </form>
         }
         else
         {
-            @using (Html.BeginForm("GetPage", "Forms", FormMethod.Post))
-            {
-                @Html.HiddenFor(Model => Model.HasStarted);
-
-                @if (!Model.AnotherFlag)
-                {
-                    <p>Form has started but another flag is false</p>
-                }
-                else
-                {
-                    <p>Form has started and another flag is true</p>
-                }
-                <input type="submit" value="Continue" />
-            }
+            <p>shouldn't be getting here</p>
 
         }
     </div>

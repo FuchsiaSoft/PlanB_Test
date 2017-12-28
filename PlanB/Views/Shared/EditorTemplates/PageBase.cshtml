@@ -1,0 +1,26 @@
+﻿@using PlanB.Models.Forms.Common;
+@using System.Reflection;
+@using PlanB.Models.Forms.Common.ControlAttributes;
+
+@model PageBase
+
+@{
+    IEnumerable<PropertyInfo> properties =
+        this.GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes()
+                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)));
+
+    foreach (var propInfo in properties)
+    {
+        var attribute = propInfo.GetCustomAttributes()
+            .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
+
+        if (attribute is TextBoxControlAttribute)
+        {
+            var textAttribute = (TextBoxControlAttribute)attribute;
+
+            <input type="text"
+                   name="@propInfo.Name"/>
+        }
+    }
+}
