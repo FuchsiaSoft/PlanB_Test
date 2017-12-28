@@ -11,7 +11,7 @@ namespace PlanB.Models.Forms.MedicalWaste
 {
     public class Name : PageBase
     {
-        public override string Header => "Request a medical waste collection";
+        public override string Header => null;
 
         protected override string _contentMarkdown => null;
 
@@ -24,13 +24,21 @@ namespace PlanB.Models.Forms.MedicalWaste
 
         public override Type GetNextPageType(IForm form)
         {
-            PropertyInfo propInfo = this.GetType().GetProperties().First();
-            foreach (var attribute in propInfo.GetCustomAttributes()
-                .Where(a => a.GetType().BaseType == typeof(BaseControlAttribute)))
+            if (string.IsNullOrWhiteSpace(CustomerName))
             {
-                
+                return this.GetType();
             }
-            throw new NotImplementedException();
+            else
+            {
+                if (CustomerName == "Kaspars")
+                {
+                    return typeof(KasparsPage);
+                }
+                else
+                {
+                    return typeof(ChrisPage);
+                }
+            }
         }
     }
 }

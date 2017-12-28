@@ -1,5 +1,7 @@
 ﻿@using PlanB.Models.Forms.Common;
 @using System.Web;
+@using System.Reflection;
+@using PlanB.Models.Forms.Common.ControlAttributes;
 
 @{
     ViewData["Title"] = "Page";
@@ -17,7 +19,7 @@
 
 @if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Content))
 {
-    @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
+    @Html.Raw(HttpUtility.HtmlDecode(Model.Form.GetCurrentPage().Content))
 
 }
 
@@ -25,13 +27,30 @@
 {
     @Html.HiddenFor(Model => Model.InstanceId);
 
-    @if (!Model.Form.AnotherFlag)
+    IEnumerable<PropertyInfo> properties =
+        Model.Form.GetCurrentPage().GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes()
+                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)));
+
+    foreach (var propInfo in properties)
     {
-        <p>Form has started but another flag is false</p>
-    }
-    else
-    {
-        <p>Form has started and another flag is true</p>
+        var attribute = propInfo.GetCustomAttributes()
+            .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
+
+        if (attribute is TextBoxControlAttribute)
+        {
+            var textAttribute = (TextBoxControlAttribute)attribute;
+            <div class="container">
+                <h3>@textAttribute.Question</h3>
+                <div class="row">
+                    @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                </div>
+                <div class="row">
+                    <input type="text"
+                           name="@propInfo.Name" />
+                </div>
+            </div>
+        }
     }
     <input type="submit" value="Continue" />
 }

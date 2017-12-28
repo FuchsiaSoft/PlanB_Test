@@ -1,6 +1,5 @@
 ﻿@using PlanB.Models.Forms.Common;
 @using System.Reflection;
-@using System.ComponentModel.DataAnnotations;
 @using PlanB.Models.Forms.Common.ControlAttributes;
 
 @model PageBase
@@ -13,10 +12,15 @@
 
     foreach (var propInfo in properties)
     {
+        var attribute = propInfo.GetCustomAttributes()
+            .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
 
+        if (attribute is TextBoxControlAttribute)
+        {
+            var textAttribute = (TextBoxControlAttribute)attribute;
+
+            <input type="text"
+                   name="@propInfo.Name"/>
+        }
     }
-
-    IFormatProvider formatProvider =
-        new System.Globalization.CultureInfo("en-US");
-    <span class="currency">@Model.ToString("C", formatProvider)</span>
 }

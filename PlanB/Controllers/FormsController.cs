@@ -31,6 +31,7 @@ namespace PlanB.Controllers
             }
 
             IForm form = FormRegister.Register[formName];
+            form.Init();
 
             HttpContext.Session.LoadAsync().Wait();
 
@@ -99,6 +100,17 @@ namespace PlanB.Controllers
             string formJson = HttpContext.Session.GetString(model.InstanceId);
 
             IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+
+            IPage page = form.GetCurrentPage();
+
+            foreach (var propInfo in page.GetType().GetProperties())
+            {
+                if (Request.Form.ContainsKey(propInfo.Name))
+                {
+                    string outString = Request.Form[propInfo.Name].ToString();
+                    propInfo.SetValue(page, outString);
+                }
+            }
 
             form.CheckStateAndGetNextPage();
 
