@@ -2,16 +2,23 @@
 // More info at https://go.microsoft.com/fwlink/?LinkId=808241
 [
   {
-    "outputFileName": "wwwroot/css/site.min.css",
+    "outputFileName": "wwwroot/css/lcc-template.min.css",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
-      "wwwroot/css/site.css"
+      "wwwroot/css/lcc-template.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/css/application.min.css",
+    // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/css/application.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lcc-template.min.js",
+    "inputFiles": [
+      "wwwroot/js/lcc-template.js"
     ],
     // Optionally specify minification options
     "minify": {
