@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlanB.Models.Forms;
 
 namespace PlanB.Models
 {
@@ -22,21 +23,17 @@ namespace PlanB.Models
         #region GenererateCategoriesList
         public static List<CategoriesList> CreateCategoriesList()
         {
-            List<CategoriesList> categoriesList = new List<CategoriesList>
+            List<CategoriesList> categoriesList = new List<CategoriesList>();
+            foreach (var registeredForm in FormRegister.Register)
             {
-                new CategoriesList
+                categoriesList.Add(new CategoriesList
                 {
-                    CategoryTittle = "Waste & Recycling",
-                    CategoryDescription = "Forms and links for 'Waste & Recycling'",
-                    CategoryId = "1"
-                },
-                new CategoriesList
-                {
-                    CategoryTittle = "TEST Category",
-                    CategoryDescription = "TEST Category description",
-                    CategoryId = "2"
-                }
-            };
+                    CategoryTittle = registeredForm.Value.CategoryTittle,
+                    CategoryDescription = registeredForm.Value.CategoryDescription,
+                    CategoryId = registeredForm.Value.CategoryId.ToString()
+                });
+            }
+            categoriesList.OrderBy(x => x.CategoryTittle).ToList();
             return categoriesList;
         }
         #endregion

@@ -14,6 +14,12 @@ namespace PlanB.Models.Forms.Common
 
         public abstract string FriendlyName { get; }
 
+        public virtual string CategoryTittle { get; } = "General";
+
+        public virtual string CategoryDescription { get; } = String.Empty;
+
+        public virtual int CategoryId { get; } = -1;
+
         public virtual string IntroContent => Markdown.ToHtml(_introMarkdownText);
 
         public bool HasStarted { get; set; } = false;

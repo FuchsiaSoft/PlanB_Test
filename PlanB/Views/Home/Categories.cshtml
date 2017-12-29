@@ -10,21 +10,20 @@
                 <div class="listWebpart">
                     <ul>
                         @{
-                                foreach (var category in @ViewBag.CategoriesList)
-                                {
-                                    <li>
-                                        <a href="\Home\Forms?id=@category.CategoryId">
-                                            <h3>@category.CategoryTittle</h3>
-                                            <br />
-                                            <p>@category.CategoryDescription</p>
-                                        </a>
-                                    </li>
-                                }
+                            foreach (var category in @ViewBag.CategoriesList)
+                            {
+                                <li>
+                                    <a href="\Home\Forms?id=@category.CategoryId">
+                                        <h3>@category.CategoryTittle</h3>
+                                        <br />
+                                        <p>@category.CategoryDescription</p>
+                                    </a>
+                                </li>
                             }
+                        }
                     </ul>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

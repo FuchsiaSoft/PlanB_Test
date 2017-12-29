@@ -10,6 +10,13 @@ namespace PlanB.Models.Forms.MedicalWaste
 {
     public class MedicalWasteForm : FormBase
     {
+        //ADDED BY KN TO ADD LEVEL 1 & LEVEL 2 AUTOGENEREATED CATEGORIES
+        public override string CategoryTittle => "Waste & Recycling";
+
+        public override string CategoryDescription => "Forms and links for 'Waste & Recycling'";
+
+        public override int CategoryId => 0;
+
         public override string FriendlyName => "Request a medical waste collection";
 
         protected override string _introMarkdownText =>

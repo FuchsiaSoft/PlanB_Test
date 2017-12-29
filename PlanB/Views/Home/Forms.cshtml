@@ -13,9 +13,7 @@
                             foreach (var form in @ViewBag.AvailableFormsList)
                             {
                                 <li>
-                                    <a href="@form.FormUrl">
-                                        <h3>@form.FormTittle</h3>
-                                    </a>
+                                    <a href="@Url.Action("New","Forms",new { formName = @form.FormUrl})"><h3>@form.FormTittle</h3></a>
                                 </li>
                             }
                         }
@@ -23,6 +21,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>

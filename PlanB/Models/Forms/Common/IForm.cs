@@ -7,6 +7,12 @@ namespace PlanB.Models.Forms.Common
 {
     public interface IForm
     {
+        string CategoryTittle { get; }
+
+        string CategoryDescription { get; }
+
+        int CategoryId { get; }
+
         string FriendlyName { get; }
 
         string IntroContent { get; }

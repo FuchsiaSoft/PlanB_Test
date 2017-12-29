@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlanB.Models.Forms;
 
 namespace PlanB.Models
 {
@@ -22,22 +23,17 @@ namespace PlanB.Models
         #region Generate Available Forms as List
         public static List<FormsList> CreateAvailableFormsList()
         {
-            List<FormsList> formsList = new List<FormsList>
+            List<FormsList> formsList = new List<FormsList>();
+            foreach (var registeredForm in FormRegister.Register)
             {
-                new FormsList
+                formsList.Add(new FormsList
                 {
-                    FormTittle = "MedicalWaste Form",
-                    FormUrl = @"\New('MedicalWaste')",
-                    AssociatedCategoryId = "1"
-                },
-
-                new FormsList
-                {
-                    FormTittle = "TEST Form",
-                    FormUrl = @"\New(MedicalWaste)",
-                    AssociatedCategoryId = "2"
-                }
-            };
+                    FormTittle = registeredForm.Value.FriendlyName,
+                    FormUrl = registeredForm.Key,
+                    AssociatedCategoryId = registeredForm.Value.CategoryId.ToString()
+                });
+            }
+            formsList.OrderBy(x => x.FormTittle).ToList();
             return formsList;
         }
         #endregion
