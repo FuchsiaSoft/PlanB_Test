@@ -10,7 +10,7 @@
 
 @model FormViewModel
 
-<h2>@Model.Form.FriendlyName</h2>
+<h4>@Model.Form.FriendlyName</h4>
 @if (!string.IsNullOrWhiteSpace(Model.Form.GetCurrentPage().Header))
 {
     <h3>@Model.Form.GetCurrentPage().Header</h3>
@@ -23,34 +23,108 @@
 
 }
 
+<button class="btn btn-secondary" onclick="window.history.back();">< Go Back</button>
+
 @using (Html.BeginForm("Do", "Forms", FormMethod.Post))
 {
     @Html.HiddenFor(Model => Model.InstanceId);
+    @Html.HiddenFor(Model => Model.FormRegisterKey);
 
     IEnumerable<PropertyInfo> properties =
         Model.Form.GetCurrentPage().GetType().GetProperties()
                 .Where(p => p.GetCustomAttributes()
-                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)));
+                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)))
+                .OrderBy(o => (o.GetCustomAttributes()
+                    .First(a => a.GetType().BaseType == typeof(BaseControlAttribute)) as BaseControlAttribute).Order);
+
 
     foreach (var propInfo in properties)
     {
         var attribute = propInfo.GetCustomAttributes()
             .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
 
+        bool hasErrors = Model.Form.GetCurrentPage()
+            .ValidationErrors.ContainsKey(propInfo.Name);
+
+
+        string formGroupClass = hasErrors ?
+            "form-group form-group-error" :
+            "form-group";
+
+
         if (attribute is TextBoxControlAttribute)
         {
             var textAttribute = (TextBoxControlAttribute)attribute;
-            <div class="container">
-                <h3>@textAttribute.Question</h3>
-                <div class="row">
-                    @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
-                </div>
-                <div class="row">
-                    <input type="text"
-                           name="@propInfo.Name" />
-                </div>
+            <div class="@formGroupClass">
+                <label class="form-label" for="@propInfo.Name">
+                    @textAttribute.Question
+                    <span class="form-hint">
+                        @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                    </span>
+                    @if (hasErrors)
+                    {
+                        string[] thisPropertyErrors = Model.Form
+                            .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                        foreach (var message in thisPropertyErrors)
+                        {
+                            <span class="error-message">
+                                @message
+                            </span>
+                        }
+
+                    }
+                </label>
+                <input class="form-control"
+                       type="text"
+                       name="@propInfo.Name"
+                       id="@propInfo.Name"
+                       value="@propInfo.GetValue(Model.Form.GetCurrentPage())" />
             </div>
+            continue;
+        }
+
+        if (attribute is RadioControlAttribute)
+        {
+            var radioAttribute = (RadioControlAttribute)attribute;
+            <div class="col-md-4">
+                <label class="form-label" for="@propInfo.Name">
+                    @radioAttribute.Question
+                    <span class="form-hint">
+                        @Html.Raw(HttpUtility.HtmlDecode(radioAttribute.HelpText))
+                    </span>
+                </label>
+                <fieldset>
+                    <legend class="sr-only">@radioAttribute.Question</legend>
+                    @{
+                        var listProp =
+                            Model.Form.GetCurrentPage().GetType()
+                            .GetProperty(radioAttribute.SourceEnumerablePropertyName);
+
+                        if (listProp.PropertyType != typeof(string[]))
+                        {
+                            throw new ArgumentException
+                                ("The radio attribute source property must be" +
+                                "a string array (string[])");
+                        }
+
+                        string[] options = (string[])listProp.GetValue(Model.Form.GetCurrentPage());
+
+                        for (int i = 0; i < options.Length; i++)
+                        {
+                            <label class="block-label" for="radio-@i" data-target="radio-@i">
+                                <input type="radio" id="radio-@i" name="@propInfo.Name"
+                                       value="@options[i]" aria-controls="radio-@i" aria-expanded="false">
+                                @options[i]
+                            </label>
+                        }
+                    }
+                </fieldset>
+            </div>
+            continue;
+
         }
     }
-    <input type="submit" value="Continue" />
+    <br />
+    <button type="submit" class="btn btn-primary">Continue ></button>
 }

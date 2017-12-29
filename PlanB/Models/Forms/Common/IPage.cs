@@ -20,5 +20,7 @@ namespace PlanB.Models.Forms.Common
         bool TryPreSubmit(IForm form);
 
         Type GetNextPageType(IForm form);
+
+        Dictionary<string, string[]> ValidationErrors { get; set; }
     }
 }

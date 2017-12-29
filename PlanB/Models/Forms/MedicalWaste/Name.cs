@@ -18,27 +18,15 @@ namespace PlanB.Models.Forms.MedicalWaste
         [TextBoxControl(
             Order = 0,
             Question = "What is your name?",
-            HelpTextMarkdown = "Enter your name below however you" +
+            HelpTextMarkdown = "Enter your name below however you " +
             "want it to appear on correspondence")]
+        [Required(ErrorMessage="Must specify a name")]
+        [MinLength(2, ErrorMessage="Name must be more than two characters")]
         public string CustomerName { get; set; }
 
         public override Type GetNextPageType(IForm form)
         {
-            if (string.IsNullOrWhiteSpace(CustomerName))
-            {
-                return this.GetType();
-            }
-            else
-            {
-                if (CustomerName == "Kaspars")
-                {
-                    return typeof(KasparsPage);
-                }
-                else
-                {
-                    return typeof(ChrisPage);
-                }
-            }
+            return typeof(CollectionType);
         }
     }
 }

@@ -14,18 +14,12 @@
 
 <div class="container">
     <div class="col-md-4">
-        @if (!Model.Form.HasStarted)
+        @using (Html.BeginForm("Start", "Forms", FormMethod.Post))
         {
-            <form asp-action="Do" method="post">
-                @Html.HiddenFor(Model => Model.InstanceId)
-                @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
-                <input type="submit" value="Start" />
-            </form>
-        }
-        else
-        {
-            <p>shouldn't be getting here</p>
-
+            @Html.HiddenFor(Model => Model.InstanceId)
+            @Html.HiddenFor(Model => Model.FormRegisterKey)
+            @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
+            <button type="submit" class="btn btn-primary">Start</button>
         }
     </div>
 </div>

@@ -14,30 +14,29 @@ namespace PlanB.Models.Forms.Common
 
         public abstract string FriendlyName { get; }
 
+        [JsonIgnore]
         public virtual string IntroContent => Markdown.ToHtml(_introMarkdownText);
 
         public bool HasStarted { get; set; } = false;
 
-        public bool AnotherFlag { get; set; } = false;
+        public Dictionary<string, IPage> Pages { get; set; }
+            = new Dictionary<string, IPage>(StringComparer.OrdinalIgnoreCase);
 
-        public List<IPage> Pages { get; set; }
+        public string CurrentPageName { get; set; }
 
-        public int CurrentPageIndex { get; set; }
-
-        public virtual void Init()
-        {
-            
-        }
+        public abstract void Init();
 
         public void CheckStateAndGetNextPage()
         {
-            IPage currentPage = Pages[CurrentPageIndex];
+            IPage currentPage = Pages[CurrentPageName];
 
             if (currentPage.TryPreSubmit(this))
             {
                 Type nextPageType = currentPage.GetNextPageType(this);
 
-                CurrentPageIndex = Pages.FindIndex(p => p.GetType() == nextPageType);
+                string nextPageName = Pages.First(p => p.Value.GetType() == nextPageType).Key;
+
+                CurrentPageName = nextPageName;
             }
         }
 
@@ -53,7 +52,18 @@ namespace PlanB.Models.Forms.Common
 
         public IPage GetCurrentPage()
         {
-            return Pages[CurrentPageIndex];
+            //Just here to abbreviate some syntax in the 
+            //razor views
+            if (string.IsNullOrWhiteSpace(CurrentPageName))
+            {
+                return Pages.First().Value;
+            }
+            else
+            {
+                return Pages[CurrentPageName];
+            }
         }
+
+        public Stack<int> PageIndexHistory { get; set; } = new Stack<int>();
     }
 }

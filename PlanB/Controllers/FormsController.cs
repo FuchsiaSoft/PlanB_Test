@@ -10,30 +10,97 @@ using PlanB.Models.Forms.MedicalWaste;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
+
 namespace PlanB.Controllers
 {
     public class FormsController : Controller
     {
 
-        
-
+        [HttpGet]
+        [Route("Forms/{form}/{page}")]
         public IActionResult Index()
         {
-            return View();
+            var data = RouteData;
+
+            string instanceId = string.Empty;
+
+            //TODO: need to handle this better, kind of undermines the whole
+            //instance id concept
+            if (TempData["PostInstanceId"] == null)
+            {
+                if (TempData["GetInstanceId"] == null)
+                {
+                    return RedirectToAction(RouteData.Values["form"].ToString());
+                }
+                else
+                {
+                    instanceId = TempData["GetInstanceId"] as string;
+
+                    string formJson = HttpContext.Session.GetString(instanceId);
+
+                    IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+
+                    form.CurrentPageName = RouteData.Values["page"] as string;
+
+                    HttpContext.Session.SetString(instanceId, form.Serialize());
+
+                    FormViewModel viewModel = new FormViewModel()
+                    {
+                        Form = form,
+                        InstanceId = instanceId,
+                        FormRegisterKey = RouteData.Values["form"] as string
+                    };
+
+                    TempData["GetInstanceId"] = instanceId;
+
+                    return View("Page", viewModel);
+                }
+            }
+            else
+            {
+                instanceId = TempData["PostInstanceId"] as string;
+
+                string formJson = HttpContext.Session.GetString(instanceId);
+
+                IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+
+                FormViewModel viewModel = new FormViewModel()
+                {
+                    Form = form,
+                    InstanceId = instanceId,
+                    FormRegisterKey = TempData["FormName"] as string
+                };
+
+                TempData["GetInstanceId"] = instanceId;
+
+                return View("Page", viewModel);
+            }
+
+            
         }
 
-        public IActionResult New(string formName = null)
+        [HttpGet]
+        [Route("Forms/{form}")]
+        public IActionResult New()
         {
+            string formName = RouteData.Values["form"].ToString();
             if (string.IsNullOrWhiteSpace(formName) ||
                 FormRegister.Register.ContainsKey(formName) == false)
             {
-                throw new ArgumentException();
+                return View("Index");
             }
 
-            IForm form = FormRegister.Register[formName];
+            IForm form = (IForm)Activator.CreateInstance(FormRegister.Register[formName]);
             form.Init();
 
             HttpContext.Session.LoadAsync().Wait();
+
+            //We don't want to store the form data straight into the session
+            //as this exposes problems for shared computers and whatnot.
+            //So instead we pass around a crypto strong number whilst the form
+            //is in progress.  This means that if the user closes the browser
+            //window then any subsequent requests will get a new key and
+            //therefore a new form entry even if using the same session ID
 
             string strongKey = string.Empty;
 
@@ -41,7 +108,6 @@ namespace PlanB.Controllers
             {
                 //It's super unlikely that we'll get the same ulong
                 //out of secure random, but just in case...
-                
                 do
                 {
                     byte[] bytes = new byte[8];
@@ -56,40 +122,33 @@ namespace PlanB.Controllers
             FormViewModel viewModel = new FormViewModel()
             {
                 Form = form,
-                InstanceId = strongKey
+                InstanceId = strongKey,
+                FormRegisterKey = formName
             };
-            
+
             return View("Form", viewModel);
         }
 
-        private void HandleFormState(IForm form)
-        {
-            if (!form.HasStarted && !form.AnotherFlag)
-            {
-                form.HasStarted = true;
-                return;
-            }
-
-            if (form.HasStarted && !form.AnotherFlag)
-            {
-                form.AnotherFlag = true;
-            }
-        }
-
         [HttpPost]
-        public IActionResult MedicalWaste(MedicalWasteForm form)
+        public IActionResult Start(FormViewModel model)
         {
-            return View("Form", form);
-        }
+            HttpContext.Session.LoadAsync().Wait();
 
-        [HttpPost]
-        public IActionResult GetPage(MedicalWasteForm model)
-        {
-            HandleFormState(model);
+            string formJson = HttpContext.Session.GetString(model.InstanceId);
+            IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+            form.CurrentPageName = form.Pages.First().Key;
 
-            
+            //serialize it for next POST
+            HttpContext.Session.SetString(model.InstanceId, form.Serialize());
 
-            return View("Form", model);
+            //hold it in temp data only for the GET redirect
+            TempData["PostInstanceId"] = model.InstanceId;
+            TempData["FormName"] = model.FormRegisterKey;
+
+            string firstPageName = form.Pages.First().Key;
+            string formName = model.FormRegisterKey;
+
+            return RedirectToAction("Index", "Forms", new { form = formName, page = firstPageName });
         }
 
         [HttpPost]
@@ -98,13 +157,18 @@ namespace PlanB.Controllers
             HttpContext.Session.LoadAsync().Wait();
 
             string formJson = HttpContext.Session.GetString(model.InstanceId);
-
             IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
-
             IPage page = form.GetCurrentPage();
 
             foreach (var propInfo in page.GetType().GetProperties())
             {
+
+                //TODO: need to handle deserialisation better here,
+                //this will be responsible for inspecting the type of
+                //the page property and dealing with parsing
+                //e.g. datetimes will be rendered as three textboxes,
+                //with the name of the property and _dd, _mm, _yy,
+                //and this must correctly parse that into a date
                 if (Request.Form.ContainsKey(propInfo.Name))
                 {
                     string outString = Request.Form[propInfo.Name].ToString();
@@ -113,12 +177,22 @@ namespace PlanB.Controllers
             }
 
             form.CheckStateAndGetNextPage();
-
-            model.Form = form;
             
+            //serialize it for next POST
             HttpContext.Session.SetString(model.InstanceId, form.Serialize());
 
-            return View("Page", model);
+            //hold it in temp data only for the GET redirect
+            TempData["PostInstanceId"] = model.InstanceId;
+            TempData["FormName"] = model.FormRegisterKey;
+
+            string nextPageName = form.CurrentPageName;
+            string formName = model.FormRegisterKey;
+
+            return RedirectToAction("Index", "Forms", new { form = formName, page = nextPageName });
         }
+
+        
+
+
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Markdig;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace PlanB.Models.Forms.Common
@@ -18,10 +20,43 @@ namespace PlanB.Models.Forms.Common
 
         public string ErrorMessage { get; set; }
 
+        public Dictionary<string, string[]> ValidationErrors { get; set; } 
+            = new Dictionary<string, string[]>();
+
+        private ValidationContext _validationContext;
         public virtual bool Validate(IForm form)
         {
-            //do some validation here
-            return true;
+            ValidationErrors = new Dictionary<string, string[]>();
+
+            if (_validationContext == null) _validationContext = new ValidationContext(this);
+
+            List<ValidationResult> validationResults = new List<ValidationResult>();
+
+            IEnumerable<PropertyInfo> properties = this.GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes<ValidationAttribute>().Count() > 0);
+
+            foreach (PropertyInfo property in properties)
+            {
+                _validationContext.MemberName = property.Name;
+
+                if (!Validator.TryValidateProperty
+                    (property.GetValue(this), _validationContext, validationResults))
+                {
+                    ValidationErrors.Add(property.Name, 
+                        validationResults.Select(v => v.ErrorMessage).ToArray());
+
+                    validationResults.Clear();
+                }
+            }
+
+            if (ValidationErrors.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public virtual bool TryPreSubmit(IForm form)

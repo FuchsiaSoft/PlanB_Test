@@ -9,10 +9,10 @@ namespace PlanB.Models.Forms
 {
     public static class FormRegister
     {
-        public static IDictionary<string, IForm> Register { get; private set; }
-            = new Dictionary<string, IForm>()
+        public static IDictionary<string, Type> Register { get; private set; }
+            = new Dictionary<string, Type>(StringComparer.InvariantCultureIgnoreCase)
             {
-                { "MedicalWaste", new MedicalWasteForm() },
+                { "MedicalWaste", typeof(MedicalWasteForm) },
 
             };
 

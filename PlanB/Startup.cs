@@ -83,11 +83,6 @@ namespace PlanB
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(
-                    name: "newForm",
-                    template: "{controller=Forms}/{action=New}/{formName?}");
-
             });
         }
     }

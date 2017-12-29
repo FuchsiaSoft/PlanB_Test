@@ -13,11 +13,9 @@ namespace PlanB.Models.Forms.Common
 
         bool HasStarted { get; set; }
 
-        bool AnotherFlag { get; set; }
+        Dictionary<string, IPage> Pages { get; set; }
 
-        List<IPage> Pages { get; set; }
-
-        int CurrentPageIndex { get; set; }
+        string CurrentPageName { get; set; }
 
         void Init();
 
@@ -26,5 +24,7 @@ namespace PlanB.Models.Forms.Common
         string Serialize();
 
         IPage GetCurrentPage();
+
+        Stack<int> PageIndexHistory { get; set; }
     }
 }
