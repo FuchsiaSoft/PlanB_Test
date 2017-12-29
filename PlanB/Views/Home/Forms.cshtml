@@ -1,0 +1,28 @@
+﻿<div class="container-fluid">
+
+    <h1>@ViewBag.Title.</h1>
+    <p>@ViewBag.Message</p>
+    <h2>@ViewBag.MessageHeader</h2>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="groupPromo">
+                <div class="listWebpart">
+                    <ul>
+                        @{
+                            foreach (var form in @ViewBag.AvailableFormsList)
+                            {
+                                <li>
+                                    <a href="@form.FormUrl">
+                                        <h3>@form.FormTittle</h3>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

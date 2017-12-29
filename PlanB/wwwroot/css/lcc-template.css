@@ -2010,7 +2010,7 @@ footer.main .footerGlobal {
     }
 
 .logo-footer span {
-    background: url(~/images/lcc-logo-white-01.svg) center center no-repeat;
+    background: url('../images/lcc-logo-white-01.svg') center center no-repeat;
     background-size: 100%;
     width: 150px;
     height: 45px;
@@ -2189,7 +2189,7 @@ ul {
 .logo {
     height: 148px;
     width: 280px;
-    background: url(~/images/lcc-logo-white-01.svg) center center no-repeat;
+    background: url('../images/lcc-logo-white-01.svg') center center no-repeat;
     margin: 20px 0
 }
 

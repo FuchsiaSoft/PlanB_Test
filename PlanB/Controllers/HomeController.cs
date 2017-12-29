@@ -10,22 +10,44 @@ namespace PlanB.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Categories()
         {
+            //SET BASIC DISPLAY INFORMATION 
+            ViewBag.Title = "Do It Online";
+            ViewBag.MessageHeader = "Categories";
+            ViewBag.Message = "This is internal council's 'Do It Online' site prototype. This site is meant to be hosting multiple self service forms.";
+
+            //GENERATE LIST OF CATEGORIES TO DISPLAY
+            List<CategoriesViewModel.CategoriesList> categoriesList = new List<CategoriesViewModel.CategoriesList>();
+            categoriesList = CategoriesViewModel.CreateCategoriesList();
+            ViewBag.CategoriesList = categoriesList;
+
+            //PRESENT VIEW
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Forms(string id)
         {
-            ViewData["Message"] = "Your application description page.";
+            //CHECK PARAMETER FOR NAVIGATION
+            if (id == null)
+            {
+                //EXECUTE REDIRECT ACTION TO NEXT CONTROLLER/VIEW
+                return this.RedirectToAction("Categories", "Home");
+            }
 
-            return View();
-        }
+            //SET VIEW SPECIFIC VARIABLES
+            List<CategoriesViewModel.CategoriesList> selectedCategory = new List<CategoriesViewModel.CategoriesList>();
+            selectedCategory = CategoriesViewModel.CreateCategoriesList().Where(x => x.CategoryId == id).ToList();
+            ViewBag.Title = selectedCategory.FirstOrDefault().CategoryTittle;
+            ViewBag.Message = selectedCategory.FirstOrDefault().CategoryDescription;
+            ViewBag.MessageHeader = "Forms";
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+            //GENERATE LIST OF FORMS FOR SELECTED CATEGORY 
+            List<FormsViewModel.FormsList> availableFormsList = new List<FormsViewModel.FormsList>();
+            availableFormsList = FormsViewModel.CreateAvailableFormsList();
+            ViewBag.AvailableFormsList = availableFormsList.Where(x => x.AssociatedCategoryId == id).ToList();
 
+            //PRESENT VIEW
             return View();
         }
 
