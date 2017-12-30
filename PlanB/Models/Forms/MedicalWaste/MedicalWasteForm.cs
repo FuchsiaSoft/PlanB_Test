@@ -22,9 +22,9 @@ namespace PlanB.Models.Forms.MedicalWaste
         public override void Init()
         {
             Pages.Add("Name", new Name());
-            Pages.Add("Chris-Page", new ChrisPage());
-            Pages.Add("Kaspars-Page", new KasparsPage());
+            Pages.Add("Collection-Address", new CollectionAddress());
             Pages.Add("Collection-Type", new CollectionType());
+            Pages.Add("Customer-Type", new CustomerType());
         }
     }
 }

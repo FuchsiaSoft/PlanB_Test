@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-PlanB-C2B703A3-09A4-49D1-ABE7-17E008B55118</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\Forms\SignUpForSomething\**" />
+    <Content Remove="Models\Forms\SignUpForSomething\**" />
+    <EmbeddedResource Remove="Models\Forms\SignUpForSomething\**" />
+    <None Remove="Models\Forms\SignUpForSomething\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.14.8" />
@@ -21,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Forms\SignUpForSomething\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
 

@@ -26,7 +26,7 @@ namespace PlanB.Models.Forms.MedicalWaste
 
         public override Type GetNextPageType(IForm form)
         {
-            return typeof(CollectionType);
+            return typeof(CollectionAddress);
         }
     }
 }

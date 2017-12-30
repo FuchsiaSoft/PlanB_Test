@@ -87,12 +87,25 @@
         if (attribute is RadioControlAttribute)
         {
             var radioAttribute = (RadioControlAttribute)attribute;
-            <div class="col-md-4">
+            <div class="@formGroupClass">
                 <label class="form-label" for="@propInfo.Name">
                     @radioAttribute.Question
                     <span class="form-hint">
                         @Html.Raw(HttpUtility.HtmlDecode(radioAttribute.HelpText))
                     </span>
+                    @if (hasErrors)
+                    {
+                        string[] thisPropertyErrors = Model.Form
+                            .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                        foreach (var message in thisPropertyErrors)
+                        {
+                            <span class="error-message">
+                                @message
+                            </span>
+                        }
+
+                    }
                 </label>
                 <fieldset>
                     <legend class="sr-only">@radioAttribute.Question</legend>

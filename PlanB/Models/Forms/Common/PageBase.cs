@@ -1,4 +1,5 @@
 ﻿using Markdig;
+using PlanB.Models.Forms.Common.ControlAttributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -48,6 +49,29 @@ namespace PlanB.Models.Forms.Common
                     validationResults.Clear();
                 }
             }
+
+            //check radio controls specifically to make sure that
+            //no clever sod has tried to post their own nonsense
+            properties = this.GetType().GetProperties()
+                .Where(p => p.GetCustomAttributes<RadioControlAttribute>().Count() > 0);
+
+            foreach (PropertyInfo property in properties)
+            {
+                string value = property.GetValue(this) as string;
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    //we won't bother handling blank radio controls as they may be
+                    //optional, and they should be handled with [Required]
+                    var attribute = property.GetCustomAttribute<RadioControlAttribute>() as RadioControlAttribute;
+                    var listProp = this.GetType().GetProperty(attribute.SourceEnumerablePropertyName);
+                    string[] options = (string[])listProp.GetValue(this);
+                    if (!options.Any(a=>a == value))
+                    {
+                        ValidationErrors.Add(property.Name, new string[] { "Invalid input for this question" });
+                    }
+                }
+            }
+
 
             if (ValidationErrors.Count == 0)
             {
