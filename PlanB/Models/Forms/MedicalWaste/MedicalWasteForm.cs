@@ -24,6 +24,7 @@ namespace PlanB.Models.Forms.MedicalWaste
             Pages.Add("Name", new Name());
             Pages.Add("Collection-Address", new CollectionAddress());
             Pages.Add("Collection-Type", new CollectionType());
+            Pages.Add("Collection-Start-Date", new CollectionStartDate());
             Pages.Add("Customer-Type", new CustomerType());
         }
     }

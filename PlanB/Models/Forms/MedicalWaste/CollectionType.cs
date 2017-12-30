@@ -35,7 +35,10 @@ namespace PlanB.Models.Forms.MedicalWaste
             {
                 return typeof(CustomerType);
             }
-            else throw new NotImplementedException();
+            else
+            {
+                return typeof(CollectionStartDate);
+            }
         }
     }
 }

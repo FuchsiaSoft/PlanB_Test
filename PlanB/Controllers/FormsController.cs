@@ -9,7 +9,8 @@ using PlanB.Models.Forms.Common;
 using PlanB.Models.Forms.MedicalWaste;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-
+using System.Reflection;
+using PlanB.Models.Forms.Common.ControlAttributes;
 
 namespace PlanB.Controllers
 {
@@ -160,24 +161,10 @@ namespace PlanB.Controllers
             IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
             IPage page = form.GetCurrentPage();
 
-            foreach (var propInfo in page.GetType().GetProperties())
-            {
-
-                //TODO: need to handle deserialisation better here,
-                //this will be responsible for inspecting the type of
-                //the page property and dealing with parsing
-                //e.g. datetimes will be rendered as three textboxes,
-                //with the name of the property and _dd, _mm, _yy,
-                //and this must correctly parse that into a date
-                if (Request.Form.ContainsKey(propInfo.Name))
-                {
-                    string outString = Request.Form[propInfo.Name].ToString();
-                    propInfo.SetValue(page, outString);
-                }
-            }
+            PutRequestDataInPage(page);
 
             form.CheckStateAndGetNextPage();
-            
+
             //serialize it for next POST
             HttpContext.Session.SetString(model.InstanceId, form.Serialize());
 
@@ -191,7 +178,49 @@ namespace PlanB.Controllers
             return RedirectToAction("Index", "Forms", new { form = formName, page = nextPageName });
         }
 
-        
+
+        private void PutRequestDataInPage(IPage page)
+        {
+            foreach (var propInfo in page.GetType().GetProperties()
+                            .Where(p => p.GetCustomAttributes()
+                            .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute))))
+            {
+                if (propInfo.PropertyType == typeof(string))
+                {
+                    if (Request.Form.ContainsKey(propInfo.Name))
+                    {
+                        string outString = Request.Form[propInfo.Name].ToString();
+                        propInfo.SetValue(page, outString);
+                    }
+                    continue;
+                }
+
+                if (propInfo.PropertyType == typeof(DateTime) &&
+                    propInfo.GetCustomAttributes<DateControlAttribute>().Count() > 0)
+                {
+                    //there should be correponding dd,mm,yy elements but 
+                    //need to check in case people spoofed etc.
+                    if (Request.Form.ContainsKey(propInfo.Name + "-dd") &&
+                        Request.Form.ContainsKey(propInfo.Name + "-mm") &&
+                        Request.Form.ContainsKey(propInfo.Name + "-yy"))
+                    {
+                        if (int.TryParse(Request.Form[propInfo.Name + "-dd"], out int day) &&
+                            int.TryParse(Request.Form[propInfo.Name + "-mm"], out int month) &&
+                            int.TryParse(Request.Form[propInfo.Name + "-yy"], out int year))
+                        {
+                            try
+                            {
+                                //still no guarantee that it's actually a real date
+                                propInfo.SetValue(this, new DateTime(year, month, day));
+                            }
+                            catch (Exception) { }
+                        }
+                    }
+                }
+
+            }
+        }
+
 
 
     }
