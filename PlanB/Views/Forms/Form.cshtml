@@ -1,33 +1,33 @@
 ﻿@using PlanB.Models.Forms.Common;
 @using System.Web;
-
-@{
-    ViewData["Title"] = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 @model FormViewModel
 
-<h2>@Model.Form.FriendlyName</h2>
+@{
+    ViewBag.Title = Model.Form.FriendlyName;
+    ViewBag.ErrorMessage = "Ooops, something went wrong.";
+}
 
-<br />
 
-<div class="container">
-    <div class="col-md-4">
-        @if (!Model.Form.HasStarted)
-        {
-            <form asp-action="Do" method="post">
-                @Html.HiddenFor(Model => Model.InstanceId)
-                @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
-                <input type="submit" value="Start" />
-            </form>
-        }
-        else
-        {
-            <p>shouldn't be getting here</p>
 
-        }
-    </div>
+<div class="col-md-8">
+
+    <h1>@ViewBag.Title</h1>
+    <br />
+    @if (!Model.Form.HasStarted)
+    {
+        <form asp-action="Do" method="post">
+            @Html.HiddenFor(Model => Model.InstanceId)
+            @Html.Raw(HttpUtility.HtmlDecode(Model.Form.IntroContent))
+            <br />
+            @Html.Partial("~/Views/Shared/_FormButtonStartPartialView.cshtml")
+        </form>
+    }
+    else
+    {
+        <p>@ViewBag.ErrorMessage</p>
+    }
 </div>
+
+
 
 
