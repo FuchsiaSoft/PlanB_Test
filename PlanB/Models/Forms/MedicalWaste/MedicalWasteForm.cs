@@ -1,5 +1,6 @@
 ﻿using Markdig;
 using PlanB.Models.Forms.Common;
+using PlanB.Models.Forms.Common.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,12 @@ namespace PlanB.Models.Forms.MedicalWaste
             Pages.Add("Collection-Type", new CollectionType());
             Pages.Add("Collection-Start-Date", new CollectionStartDate());
             Pages.Add("Customer-Type", new CustomerType());
+            Pages.Add("Collection-Reason", new Reason());
+            Pages.Add("Company-Name", new CompanyName());
+            Pages.Add("Company-Type", new CompanyType());
+            Pages.Add("Company-Type-Other", new CompanyTypeOther());
+            Pages.Add("Container-Type", new ContainerType());
+            Pages.Add("Confirmation-Page", new ConfirmationPage());
         }
     }
 }

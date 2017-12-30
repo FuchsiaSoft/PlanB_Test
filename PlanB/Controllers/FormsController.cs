@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.Reflection;
 using PlanB.Models.Forms.Common.ControlAttributes;
+using PlanB.Models.Forms.Common.Pages;
 
 namespace PlanB.Controllers
 {
@@ -168,6 +169,12 @@ namespace PlanB.Controllers
             //serialize it for next POST
             HttpContext.Session.SetString(model.InstanceId, form.Serialize());
 
+            if (form.GetCurrentPage().GetType() == typeof(ConfirmationPage))
+            {
+                ViewData["Ref"] = model.InstanceId;
+                return View("Confirmation");
+            }
+
             //hold it in temp data only for the GET redirect
             TempData["PostInstanceId"] = model.InstanceId;
             TempData["FormName"] = model.FormRegisterKey;
@@ -195,7 +202,7 @@ namespace PlanB.Controllers
                     continue;
                 }
 
-                if (propInfo.PropertyType == typeof(DateTime) &&
+                if (propInfo.PropertyType == typeof(DateTime?) &&
                     propInfo.GetCustomAttributes<DateControlAttribute>().Count() > 0)
                 {
                     //there should be correponding dd,mm,yy elements but 
@@ -210,8 +217,16 @@ namespace PlanB.Controllers
                         {
                             try
                             {
-                                //still no guarantee that it's actually a real date
-                                propInfo.SetValue(this, new DateTime(year, month, day));
+                                //just in case someone puts something like 31st Feb in,
+                                //because DateTime constructor will roll over excess
+                                //days and months.. so we need to make sure the newly
+                                //constructed datetime is actually the same as the
+                                //values that went into its constructor... JOSH!
+                                DateTime date = new DateTime(year, month, day);
+                                if (date.Day == day && date.Month == month && date.Year == year)
+                                {
+                                    propInfo.SetValue(page, date);
+                                }
                             }
                             catch (Exception) { }
                         }

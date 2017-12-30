@@ -84,6 +84,37 @@
             continue;
         }
 
+        if (attribute is TextAreaControlAttribute)
+        {
+            var textAttribute = (TextAreaControlAttribute)attribute;
+            <div class="@formGroupClass">
+                <label class="form-label" for="@propInfo.Name">
+                    @textAttribute.Question
+                    <span class="form-hint">
+                        @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                    </span>
+                    @if (hasErrors)
+                    {
+                        string[] thisPropertyErrors = Model.Form
+                            .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                        foreach (var message in thisPropertyErrors)
+                        {
+                            <span class="error-message">
+                                @message
+                            </span>
+                        }
+
+                    }
+                </label>
+                <textarea class="form-control form-control-3-4"
+                          name="@propInfo.Name"
+                          id="@propInfo.Name"
+                          rows="5">@propInfo.GetValue(Model.Form.GetCurrentPage())</textarea>
+            </div>
+            continue;
+        }
+
         if (attribute is RadioControlAttribute)
         {
             var radioAttribute = (RadioControlAttribute)attribute;

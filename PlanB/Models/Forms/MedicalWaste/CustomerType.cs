@@ -34,7 +34,14 @@ namespace PlanB.Models.Forms.MedicalWaste
 
         public override Type GetNextPageType(IForm form)
         {
-            throw new NotImplementedException();
+            if (SelectedCustomerType == "Domestic")
+            {
+                return typeof(Reason);
+            }
+            else
+            {
+                return typeof(CompanyName);
+            }
         }
     }
 }

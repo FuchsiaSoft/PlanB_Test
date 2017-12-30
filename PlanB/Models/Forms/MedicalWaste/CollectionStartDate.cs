@@ -19,7 +19,7 @@ namespace PlanB.Models.Forms.MedicalWaste
             HelpTextMarkdown = "You must choose a date at least **10 days from now**")]
         [Required(ErrorMessage="You must specify a date")]
         [CustomValidation(typeof(CollectionStartDate), "ValidateDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         public override Type GetNextPageType(IForm form)
         {
@@ -28,7 +28,7 @@ namespace PlanB.Models.Forms.MedicalWaste
 
         public static ValidationResult ValidateDate(DateTime date)
         {
-            if ((DateTime.Today - date).TotalDays < 10)
+            if ((date - DateTime.Today).TotalDays < 10)
             {
                 return new ValidationResult("Date must be at least 10 days from today");
             }
