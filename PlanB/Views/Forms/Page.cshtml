@@ -1,4 +1,5 @@
 ﻿@using PlanB.Models.Forms.Common;
+@using PlanB.Models.Forms.Common.Pages;
 @using System.Web;
 @using System.Reflection;
 @using PlanB.Models.Forms.Common.ControlAttributes;
@@ -25,194 +26,341 @@
 
 @*<button class="btn btn-secondary" onclick="window.history.back();">< Go Back</button>*@
 
-@using (Html.BeginForm("Do", "Forms", FormMethod.Post))
+@if (Model.Form.GetCurrentPage().GetType().IsSubclassOf(typeof(AddressLookupPageBase)) &&
+          ((AddressLookupPageBase)Model.Form.GetCurrentPage()).ForceManualInput == false)
 {
-    @Html.HiddenFor(Model => Model.InstanceId);
-    @Html.HiddenFor(Model => Model.FormRegisterKey);
+    AddressLookupPageBase thisPage = Model.Form.GetCurrentPage() as AddressLookupPageBase;
 
-    IEnumerable<PropertyInfo> properties =
-        Model.Form.GetCurrentPage().GetType().GetProperties()
-                .Where(p => p.GetCustomAttributes()
-                .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)))
-                .OrderBy(o => (o.GetCustomAttributes()
-                    .First(a => a.GetType().BaseType == typeof(BaseControlAttribute)) as BaseControlAttribute).Order);
+    bool hasPostcodeError = thisPage.ValidationErrors.ContainsKey("PostCode");
+    string formGroupClass = hasPostcodeError ?
+                "form-group form-group-error" :
+                "form-group";
 
-
-    foreach (var propInfo in properties)
+    @using (Html.BeginForm("LookupAddress", "Forms", FormMethod.Post))
     {
-        var attribute = propInfo.GetCustomAttributes()
-            .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
+        @Html.HiddenFor(Model => Model.InstanceId);
+        @Html.HiddenFor(Model => Model.FormRegisterKey);
 
-        bool hasErrors = Model.Form.GetCurrentPage()
-            .ValidationErrors.ContainsKey(propInfo.Name);
-
-
-        string formGroupClass = hasErrors ?
-            "form-group form-group-error" :
-            "form-group";
-
-
-        if (attribute is TextBoxControlAttribute)
-        {
-            var textAttribute = (TextBoxControlAttribute)attribute;
-            <div class="@formGroupClass">
-                <label class="form-label" for="@propInfo.Name">
-                    @textAttribute.Question
-                    <span class="form-hint">
-                        @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
-                    </span>
-                    @if (hasErrors)
+        <div class="@formGroupClass">
+            <label class="form-label" for="PostCode">Postcode</label>
+            @{
+                if (hasPostcodeError)
+                {
+                    string[] errors = thisPage.ValidationErrors["PostCode"];
+                    foreach (var message in errors)
                     {
-                        string[] thisPropertyErrors = Model.Form
-                            .GetCurrentPage().ValidationErrors[propInfo.Name];
-
-                        foreach (var message in thisPropertyErrors)
-                        {
-                            <span class="error-message">
-                                @message
-                            </span>
-                        }
-
+                        <span class="error-message">
+                            @message;
+                        </span>
                     }
-                </label>
-                <input class="form-control"
-                       type="text"
-                       name="@propInfo.Name"
-                       id="@propInfo.Name"
-                       value="@propInfo.GetValue(Model.Form.GetCurrentPage())" />
+
+                }
+
+            }
+
+            <div>
+                <div class="col-md-3">
+                    <input class="form-control" id="PostCode" type="text"
+                           name="PostCode" value="@thisPage.PostCode" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Lookup</button>
+                </div>
             </div>
-            continue;
-        }
+        </div>
 
-        if (attribute is TextAreaControlAttribute)
+    }
+
+    @if (thisPage.AvailableAddresses != null &&
+ thisPage.AvailableAddresses.Count() > 0)
+    {
+        using (Html.BeginForm("Do", "Forms", FormMethod.Post))
         {
-            var textAttribute = (TextAreaControlAttribute)attribute;
-            <div class="@formGroupClass">
-                <label class="form-label" for="@propInfo.Name">
-                    @textAttribute.Question
-                    <span class="form-hint">
-                        @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
-                    </span>
-                    @if (hasErrors)
-                    {
-                        string[] thisPropertyErrors = Model.Form
-                            .GetCurrentPage().ValidationErrors[propInfo.Name];
+            @Html.HiddenFor(Model => Model.InstanceId);
+            @Html.HiddenFor(Model => Model.FormRegisterKey);
 
-                        foreach (var message in thisPropertyErrors)
-                        {
-                            <span class="error-message">
-                                @message
-                            </span>
-                        }
+            //Controller puts values into the relevant properties even
+            //when using a lookup, so if an error exists against
+            //addresslineone then it was an invalid choice
+            bool addressChoiceError = thisPage.ValidationErrors.ContainsKey("AddressLineOne");
+            string addressFormGroupClass = addressChoiceError ?
+                "form-group form-group-error" :
+                "form-group";
+
+            <div class="@addressFormGroupClass">
+                <label class="form-label" for="AddressChoice">Select an address</label>
+                @if (addressChoiceError)
+                {
+                    string[] errors = thisPage.ValidationErrors["AddressLineOne"];
+                    foreach (var message in errors)
+                    {
+                        <span class="error-message">
+                            @message;
+                        </span>
                     }
-                </label>
-                <textarea class="form-control form-control-3-4"
-                          name="@propInfo.Name"
-                          id="@propInfo.Name"
-                          rows="5">@propInfo.GetValue(Model.Form.GetCurrentPage())</textarea>
+                }
+                <select class="form-control" id="AddressChoice" name="AddressChoice">
+                    @foreach (var addressModel in thisPage.AvailableAddresses)
+                    {
+                        <option>@addressModel.Address1</option>
+                    }
+                </select>
             </div>
-            continue;
+            <button type="submit" class="btn btn-primary">Continue ></button>
         }
+    }
 
-        if (attribute is RadioControlAttribute)
+    <p><strong>- OR -</strong></p>
+    <br />
+    @using (Html.BeginForm("ForceManual", "Forms", FormMethod.Post))
+    {
+        @Html.HiddenFor(Model => Model.InstanceId);
+        @Html.HiddenFor(Model => Model.FormRegisterKey);
+        <button type="submit" class="btn btn-secondary">Enter manually ></button>
+    }
+
+}
+else
+{
+    @using (Html.BeginForm("Do", "Forms", FormMethod.Post))
+    {
+        @Html.HiddenFor(Model => Model.InstanceId);
+        @Html.HiddenFor(Model => Model.FormRegisterKey);
+
+        IEnumerable<PropertyInfo> properties =
+            Model.Form.GetCurrentPage().GetType().GetProperties()
+                    .Where(p => p.GetCustomAttributes()
+                    .Any(a => a.GetType().BaseType == typeof(BaseControlAttribute)))
+                    .OrderBy(o => (o.GetCustomAttributes()
+                        .First(a => a.GetType().BaseType == typeof(BaseControlAttribute)) as BaseControlAttribute).Order);
+
+
+        foreach (var propInfo in properties)
         {
-            var radioAttribute = (RadioControlAttribute)attribute;
-            <div class="@formGroupClass">
-                <label class="form-label" for="@propInfo.Name">
-                    @radioAttribute.Question
-                    <span class="form-hint">
-                        @Html.Raw(HttpUtility.HtmlDecode(radioAttribute.HelpText))
-                    </span>
-                    @if (hasErrors)
-                    {
-                        string[] thisPropertyErrors = Model.Form
-                            .GetCurrentPage().ValidationErrors[propInfo.Name];
+            var attribute = propInfo.GetCustomAttributes()
+                .First(a => a.GetType().BaseType == typeof(BaseControlAttribute));
 
-                        foreach (var message in thisPropertyErrors)
+            bool hasErrors = Model.Form.GetCurrentPage()
+                .ValidationErrors.ContainsKey(propInfo.Name);
+
+
+            string formGroupClass = hasErrors ?
+                "form-group form-group-error" :
+                "form-group";
+
+
+            if (attribute is TextBoxControlAttribute)
+            {
+                var textAttribute = (TextBoxControlAttribute)attribute;
+                <div class="@formGroupClass">
+                    <label class="form-label" for="@propInfo.Name">
+                        @textAttribute.Question
+                        <span class="form-hint">
+                            @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                        </span>
+                        @if (hasErrors)
                         {
-                            <span class="error-message">
-                                @message
-                            </span>
+                            string[] thisPropertyErrors = Model.Form
+                                .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                            foreach (var message in thisPropertyErrors)
+                            {
+                                <span class="error-message">
+                                    @message
+                                </span>
+                            }
+
+                        }
+                    </label>
+                    <input class="form-control"
+                           type="text"
+                           name="@propInfo.Name"
+                           id="@propInfo.Name"
+                           value="@propInfo.GetValue(Model.Form.GetCurrentPage())" />
+                </div>
+                continue;
+            }
+
+            if (attribute is TextAreaControlAttribute)
+            {
+                var textAttribute = (TextAreaControlAttribute)attribute;
+                <div class="@formGroupClass">
+                    <label class="form-label" for="@propInfo.Name">
+                        @textAttribute.Question
+                        <span class="form-hint">
+                            @Html.Raw(HttpUtility.HtmlDecode(textAttribute.HelpText))
+                        </span>
+                        @if (hasErrors)
+                        {
+                            string[] thisPropertyErrors = Model.Form
+                                .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                            foreach (var message in thisPropertyErrors)
+                            {
+                                <span class="error-message">
+                                    @message
+                                </span>
+                            }
+                        }
+                    </label>
+                    <textarea class="form-control form-control-3-4"
+                              name="@propInfo.Name"
+                              id="@propInfo.Name"
+                              rows="5">@propInfo.GetValue(Model.Form.GetCurrentPage())</textarea>
+                </div>
+                continue;
+            }
+
+            if (attribute is RadioControlAttribute)
+            {
+                var radioAttribute = (RadioControlAttribute)attribute;
+                <div class="@formGroupClass">
+                    <label class="form-label" for="@propInfo.Name">
+                        @radioAttribute.Question
+                        <span class="form-hint">
+                            @Html.Raw(HttpUtility.HtmlDecode(radioAttribute.HelpText))
+                        </span>
+                        @if (hasErrors)
+                        {
+                            string[] thisPropertyErrors = Model.Form
+                                .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                            foreach (var message in thisPropertyErrors)
+                            {
+                                <span class="error-message">
+                                    @message
+                                </span>
+                            }
+
+                        }
+                    </label>
+                    <fieldset>
+                        <legend class="sr-only">@radioAttribute.Question</legend>
+                        @{
+                            var listProp =
+                                Model.Form.GetCurrentPage().GetType()
+                                .GetProperty(radioAttribute.SourceEnumerablePropertyName);
+
+                            if (listProp.PropertyType != typeof(string[]))
+                            {
+                                throw new ArgumentException
+                                    ("The radio attribute source property must be" +
+                                    "a string array (string[])");
+                            }
+
+                            string[] options = (string[])listProp.GetValue(Model.Form.GetCurrentPage());
+
+                            for (int i = 0; i < options.Length; i++)
+                            {
+                                <label class="block-label" for="radio-@i" data-target="radio-@i">
+                                    <input type="radio" id="radio-@i" name="@propInfo.Name"
+                                           value="@options[i]" aria-controls="radio-@i" aria-expanded="false">
+                                    @options[i]
+                                </label>
+                            }
+                        }
+                    </fieldset>
+                </div>
+                continue;
+            }
+
+            if (attribute is DropDownControlAttribute)
+            {
+                var dropAttribute = (DropDownControlAttribute)attribute;
+                <div class="@formGroupClass">
+                    <label class="form-label" for="@propInfo.Name">
+                        @dropAttribute.Question
+                        <span class="form-hint">
+                            @Html.Raw(HttpUtility.HtmlDecode(dropAttribute.HelpText))
+                        </span>
+                        @if (hasErrors)
+                        {
+                            string[] thisPropertyErrors = Model.Form
+                                .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                            foreach (var message in thisPropertyErrors)
+                            {
+                                <span class="error-message">
+                                    @message
+                                </span>
+                            }
+
                         }
 
-                    }
-                </label>
-                <fieldset>
-                    <legend class="sr-only">@radioAttribute.Question</legend>
+                    </label>
                     @{
-                        var listProp =
-                            Model.Form.GetCurrentPage().GetType()
-                            .GetProperty(radioAttribute.SourceEnumerablePropertyName);
+                        var listMethod =
+                                Model.Form.GetCurrentPage().GetType()
+                                .GetMethod(dropAttribute.SourceArrayMethodName);
 
-                        if (listProp.PropertyType != typeof(string[]))
+                        if (listMethod.ReturnType != typeof(string[]))
                         {
                             throw new ArgumentException
-                                ("The radio attribute source property must be" +
+                                ("The drop down attribute source method must be" +
                                 "a string array (string[])");
                         }
 
-                        string[] options = (string[])listProp.GetValue(Model.Form.GetCurrentPage());
+                        string[] options = (string[])listMethod.Invoke(Model.Form.GetCurrentPage(), null);
 
-                        for (int i = 0; i < options.Length; i++)
-                        {
-                            <label class="block-label" for="radio-@i" data-target="radio-@i">
-                                <input type="radio" id="radio-@i" name="@propInfo.Name"
-                                       value="@options[i]" aria-controls="radio-@i" aria-expanded="false">
-                                @options[i]
-                            </label>
-                        }
+                        <select class="form-control" id="@propInfo.Name" name="@propInfo.Name">
+
+                            @for (int i = 0; i < options.Length; i++)
+                            {
+                                <option>@options[i]</option>
+                            }
+                        </select>
                     }
-                </fieldset>
-            </div>
-            continue;
-        }
+                </div>
+                continue;
+            }
 
-        if (attribute is DateControlAttribute)
-        {
-            string dayId = propInfo.Name + "-dd";
-            string monthId = propInfo.Name + "-mm";
-            string yearId = propInfo.Name + "-yy";
+            if (attribute is DateControlAttribute)
+            {
+                string dayId = propInfo.Name + "-dd";
+                string monthId = propInfo.Name + "-mm";
+                string yearId = propInfo.Name + "-yy";
 
-            var dateAttribute = (DateControlAttribute)attribute;
-            <div class="@formGroupClass">
-                <label class="form-label">
-                    @dateAttribute.Question
-                    <span class="form-hint">
-                        @Html.Raw(HttpUtility.HtmlDecode(dateAttribute.HelpText))
-                    </span>
-                    @if (hasErrors)
-                    {
-                        string[] thisPropertyErrors = Model.Form
-                            .GetCurrentPage().ValidationErrors[propInfo.Name];
-
-                        foreach (var message in thisPropertyErrors)
+                var dateAttribute = (DateControlAttribute)attribute;
+                <div class="@formGroupClass">
+                    <label class="form-label">
+                        @dateAttribute.Question
+                        <span class="form-hint">
+                            @Html.Raw(HttpUtility.HtmlDecode(dateAttribute.HelpText))
+                        </span>
+                        @if (hasErrors)
                         {
-                            <span class="error-message">
-                                @message
-                            </span>
+                            string[] thisPropertyErrors = Model.Form
+                                .GetCurrentPage().ValidationErrors[propInfo.Name];
+
+                            foreach (var message in thisPropertyErrors)
+                            {
+                                <span class="error-message">
+                                    @message
+                                </span>
+                            }
                         }
-                    }
-                </label>
-                <fieldset>
-                    <div class="form-date">
-                        <div class="form-group form-group-day">
-                            <label class="form-label" for="@dayId">Day </label>
-                            <input class="form-control" id="@dayId" name="@dayId" type="number" pattern="[0-9]*" min="0" max="31">
+                    </label>
+                    <fieldset>
+                        <div class="form-date">
+                            <div class="form-group form-group-day">
+                                <label class="form-label" for="@dayId">Day </label>
+                                <input class="form-control" id="@dayId" name="@dayId" type="number" pattern="[0-9]*" min="0" max="31">
+                            </div>
+                            <div class="form-group form-group-month">
+                                <label class="form-label" for="@monthId">Month </label>
+                                <input class="form-control" id="@monthId" name="@monthId" type="number" pattern="[0-9]*" min="0" max="12">
+                            </div>
+                            <div class="form-group form-group-year">
+                                <label class="form-label" for="@yearId">Year </label>
+                                <input class="form-control" id="@yearId" name="@yearId" type="number" pattern="[0-9]*" min="0" max="9999">
+                            </div>
                         </div>
-                        <div class="form-group form-group-month">
-                            <label class="form-label" for="@monthId">Month </label>
-                            <input class="form-control" id="@monthId" name="@monthId" type="number" pattern="[0-9]*" min="0" max="12">
-                        </div>
-                        <div class="form-group form-group-year">
-                            <label class="form-label" for="@yearId">Year </label>
-                            <input class="form-control" id="@yearId" name="@yearId" type="number" pattern="[0-9]*" min="0" max="9999">
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            continue;
+                    </fieldset>
+                </div>
+                continue;
+            }
         }
+        <br />
+        <button type="submit" class="btn btn-primary">Continue ></button>
     }
-    <br />
-    <button type="submit" class="btn btn-primary">Continue ></button>
 }

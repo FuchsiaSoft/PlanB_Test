@@ -24,7 +24,6 @@ namespace PlanB.Models.Forms.MedicalWaste
         [Required(ErrorMessage = "You must choose one option")]
         public string SelectedCompanyType { get; set; }
 
-        [JsonIgnore]
         public string[] AvailableCompanyTypes => new string[]
         {
             "Dental",

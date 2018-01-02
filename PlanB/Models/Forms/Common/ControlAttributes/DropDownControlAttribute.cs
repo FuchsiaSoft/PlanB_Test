@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 namespace PlanB.Models.Forms.Common.ControlAttributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class DropDownAttribute : BaseControlAttribute
+    public class DropDownControlAttribute : BaseControlAttribute
     {
+        public string SourceArrayMethodName { get; set; }
     }
 }

@@ -234,9 +234,95 @@ namespace PlanB.Controllers
                 }
 
             }
+
+            if (page.GetType().IsSubclassOf(typeof(AddressLookupPageBase)))
+            {
+                var addressPage = page as AddressLookupPageBase;
+                if (addressPage.AvailableAddresses != null &&
+                    Request.Form.ContainsKey("AddressChoice") && 
+                    addressPage.AvailableAddresses.Any(a=>a.Address1 == Request.Form["AddressChoice"]))
+                {
+                    var selectedAddress = addressPage.AvailableAddresses
+                        .First(a => a.Address1 == Request.Form["AddressChoice"]);
+
+                    addressPage.AddressLineOne = selectedAddress.Address1;
+                    addressPage.AddressLineThree = selectedAddress.Locality;
+                    addressPage.City = selectedAddress.Town;
+                    addressPage.County = selectedAddress.County;
+                    addressPage.Blpu = selectedAddress.Blpu;
+                    addressPage.X = selectedAddress.X;
+                    addressPage.Y = selectedAddress.Y;
+
+                    //Needed so that the list of available addresses doesn't
+                    //persist in our output
+                    addressPage.AvailableAddresses = null;
+                }
+            }
         }
 
+        [HttpPost]
+        public IActionResult LookupAddress(FormViewModel model)
+        {
+            //Don't need to do much here apart from store the updated form page and
+            //bounce it to the GET, as page.cshtml does all the rendering
+            HttpContext.Session.LoadAsync().Wait();
 
+            string formJson = HttpContext.Session.GetString(model.InstanceId);
+            IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+            IPage page = form.GetCurrentPage();
+
+            if (page.GetType().IsSubclassOf(typeof(AddressLookupPageBase)))
+            {
+                PutRequestDataInPage(page);
+                ((AddressLookupPageBase)page).GetAddresses();
+
+                HttpContext.Session.SetString(model.InstanceId, form.Serialize());
+
+                TempData["PostInstanceId"] = model.InstanceId;
+                TempData["FormName"] = model.FormRegisterKey;
+
+                string nextPageName = form.CurrentPageName;
+                string formName = model.FormRegisterKey;
+
+                return RedirectToAction("Index", "Forms", new { form = formName, page = nextPageName });
+            }
+
+            return null;
+        }
+
+        [HttpPost]
+        public IActionResult ForceManual(FormViewModel model)
+        {
+            //Don't need to do much here apart from store the updated form page and
+            //bounce it to the GET, as page.cshtml does all the rendering
+            HttpContext.Session.LoadAsync().Wait();
+
+            string formJson = HttpContext.Session.GetString(model.InstanceId);
+            IForm form = JsonConvert.DeserializeObject<IForm>(formJson);
+            IPage page = form.GetCurrentPage();
+
+            if (page.GetType().IsSubclassOf(typeof(AddressLookupPageBase)))
+            {
+                PutRequestDataInPage(page);
+                ((AddressLookupPageBase)page).ForceManualInput = true;
+
+                //clear any spurious validation errors they saw before
+                //going for a manual input
+                page.ValidationErrors.Clear();
+
+                HttpContext.Session.SetString(model.InstanceId, form.Serialize());
+
+                TempData["PostInstanceId"] = model.InstanceId;
+                TempData["FormName"] = model.FormRegisterKey;
+
+                string nextPageName = form.CurrentPageName;
+                string formName = model.FormRegisterKey;
+
+                return RedirectToAction("Index", "Forms", new { form = formName, page = nextPageName });
+            }
+
+            return null;
+        }
 
     }
 }

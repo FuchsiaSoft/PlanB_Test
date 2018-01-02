@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PlanB.Models.Forms.MedicalWaste
 {
-    public class CollectionAddress : PropertyAddressBase
+    public class CollectionAddress : AddressLookupPageBase
     {
         public override string Header => "What is the address?";
 
