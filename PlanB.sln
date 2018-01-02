@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanB", "PlanB\PlanB.csproj", "{3B9C2264-D5C5-4EE3-96A4-BA6C5780888A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMegaFastLeedsAddressLookup", "SuperMegaFastLeedsAddressLookup\SuperMegaFastLeedsAddressLookup.csproj", "{314BCEE7-D620-493A-9FB3-949D0B487125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3B9C2264-D5C5-4EE3-96A4-BA6C5780888A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B9C2264-D5C5-4EE3-96A4-BA6C5780888A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B9C2264-D5C5-4EE3-96A4-BA6C5780888A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{314BCEE7-D620-493A-9FB3-949D0B487125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{314BCEE7-D620-493A-9FB3-949D0B487125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{314BCEE7-D620-493A-9FB3-949D0B487125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{314BCEE7-D620-493A-9FB3-949D0B487125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
