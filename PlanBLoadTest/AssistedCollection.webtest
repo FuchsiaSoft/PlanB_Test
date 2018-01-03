@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest1" Id="f56615c0-540f-4b24-9166-04f4ba900557" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.9394ecd2-8540-4e57-9082-55969d6c23b2.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="298b916d-521e-4ddf-88bf-a1052c38fadf" Version="1.1" Url="http://api.bing.com/qsml.aspx" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="query" Value="pla" RecordedValue="pla" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="maxwidth" Value="32765" RecordedValue="32765" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="rowheight" Value="20" RecordedValue="20" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="sectionHeight" Value="160" RecordedValue="160" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="FORM" Value="IESS02" RecordedValue="IESS02" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+        <QueryStringParameter Name="market" Value="en-GB" RecordedValue="en-GB" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="8393ecfb-6207-4e10-bc34-00581a2cc8a1" Version="1.1" Url="http://planb-demo.azurewebsites.net/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="af61e6b0-c558-42c7-9f0c-8a6ea85dc9aa" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="7f588710-7ef8-486b-b276-61c9ce7448e4" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a20dd30c-d0e1-4fa2-8747-439e66fd491c" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="79ea97ee-dea6-4e02-8bfb-f36cff4d9c16" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="53a17328-041f-4a34-8071-40b7fa9766e9" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="fa06ecb6-ef4b-4802-867c-ded94bc30698" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="4" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="1e52cf24-75ac-4f53-b7e6-e800994520bb" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+    </Request>
+    <Request Method="GET" Guid="f3f9a512-58b9-4d94-990f-b765f575406e" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="12e12443-4a54-4774-ac3a-e7c06a6b3574" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="fabc136f-16da-4a67-9b00-de999dabd939" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="035d37d8-1840-4914-87d1-e245b3ac38a5" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="ee053c59-3e29-4209-88da-82a0fa509694" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="d981187b-1db5-482b-9606-c6ed83d92ab7" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="ad97991d-856d-482b-a6d7-24835b10001d" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Start" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB8LcH46CYk_XPfcdJrQAg5UgA9NcbDZGWlPd7TKRJ0ueGoDbwbL1HLZRnbCEL7MSJQRzqK2s30pYnAG4YtAEkGhWuPKxHH0_zeOMhjvj0uc4l5diYO3ihwzN-koh0hdI24" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="76668475-1932-4d9b-9459-5b5d20ea54f6" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="658324ae-6ce6-4842-b955-880f1abff8a3" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="c2951ba3-7249-43ea-a4b8-a3b3d7766ab1" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="7a6ffab4-536e-42ed-af08-43fd57415537" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="08df2b8c-7cb8-4803-9c80-178ec2e99404" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="6e22d7a4-0948-48cc-ae8f-999790d22830" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="8" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="db1e872b-08fd-4794-bba8-978bc5890c68" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/ForceManual" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB9e99Bu9-JlIr655GpgrrHhe4CRAzUKU4AB-hW1isQuuQqo4dSLZq__stiDERO8dOB4abm5ibI_A4C4XzWBd4YQJFNPscCiQmCthj8QRDL8uGZ_aJAUPfUBV-TLEukN2Gw" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="eddd9b99-a0a8-4815-ba44-ea4b88a14476" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="8c882700-bb80-4472-b58b-1ae4d7519868" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="acbf1337-2cce-471d-95aa-9ca49ce8c53c" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="503af341-b544-419f-a0c8-ddaa81bf34a8" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="e7c1b584-933a-4a75-84d1-206eb493988d" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="1d30dea9-dd8a-4721-a5b2-67030c593069" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="12" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="60ad6887-1d9a-4570-8706-03da9402f6f5" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-address" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractFormField, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam1.SelectedReason" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="Name" Value="radio-3" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+            <RuleParameter Name="Index" Value="3" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="AddressLineOne" Value="Test address line 1" RecordedValue="Test address line 1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="AddressLineTwo" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="AddressLineThree" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="City" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="County" Value="" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="PostCode" Value="LS1 3DL" RecordedValue="LS1 3DL" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB_dxIgpAR3myI3MF9AcZXeGb8wshUxBoUlIXnt32uMQoICrKcxQrgXoHZtypr5UEGmWv8hASX3OSFDZG3hmC7i_Rs9xPnDX4_IEBmMQRgejMki4mldgxzS6ETkXmguZ0wE" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="4a6ff628-9611-49d4-b7f8-08f2f15f4826" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="e952f6b5-0434-4747-a90b-7d3d86de7338" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="71b5386b-1145-4a29-98b5-f4ae99712ee6" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a7f54586-c0a8-4518-aa56-8f2c30437829" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="c02e3147-5bc2-4835-bb83-752b8baf80ac" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a8a17808-b7a3-4bd5-bd89-10195b2df818" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="ebe35f89-1bef-44bd-835d-870271f107bd" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-reason" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractFormField, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam2.SelectedType" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="Name" Value="radio-1" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+            <RuleParameter Name="Index" Value="1" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="SelectedReason" Value="Mental health difficulties" RecordedValue="Mental health difficulties" CorrelationBinding="{{FormPostParam1.SelectedReason}}" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB_AenAIjnM0QjElXrZNwXXRvX-jyDAPOGgqKINRRkA7Iii0ARdd3jyUz0iHwfMY1_TqqV9Adwf0dMlBdHiNNbmeyDnk3Ro5IbPRlzQJt3-bxlPQd7fiiqd8CklJFwlt2F8" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="3f4a6b89-94ae-40e4-baf8-77796655f5db" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="751aca71-fe39-4362-bfb4-77303a3f8d8e" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="0d877d19-e804-4d6a-bb34-70af063d6994" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="409c79c6-d92a-4a59-b0e7-8f5e4f875564" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a2a39dbf-5a1f-4fef-8b0c-5df2d79ca9d0" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="15a69f7a-aa43-4622-ba1a-0b047ecee436" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="5" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="660b209a-0e21-4f87-8ed0-e72cf107eef2" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/collection-type" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam3.SelectedCount" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="min=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; max" />
+            <RuleParameter Name="Index" Value="0" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="SelectedType" Value="Temporary" RecordedValue="Temporary" CorrelationBinding="{{FormPostParam2.SelectedType}}" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB8qKTIDVgcRHqzyxxrjmy1ptvAPLOddTmTJ4IPen7VBm_9Izj55Bx8TGA1n6e8CVYOK_GwIC-OyvKUXsybgdtmv5-Fm49le0b0ljUes62efRUP28k7S0s7w5F5FdkRjPAs" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="e930c7c1-d636-40b8-ad63-de4915a8cef2" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="6a96e3a4-640e-4b5c-9e9f-97b56c64e1c4" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="c83a641b-d3a8-4a75-8339-d739b1a94618" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="74d620ba-0aaa-400c-b29e-4ab3110d2d35" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="96a6e8f5-68d6-470d-8d24-9310d03923b9" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="e0ccb0a4-d9de-4996-abd8-107e7bab8c72" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="95069be1-d2b4-4f66-845d-5dc529955347" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/end-date" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="EndDate-dd" Value="26" RecordedValue="26" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="EndDate-mm" Value="02" RecordedValue="02" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="EndDate-yy" Value="2025" RecordedValue="2025" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB_E7kmiWwofd-KOOGqwQTHJNndBN00HSuUbIfHaVzj5m_DS9tWcb45f-aBynt_RVvfI77BY2NORcUdG95oX9WJ4HAzqlO0EtcXt7CVE_YyKbZpbCMJFvms5wVTsKkQ_40c" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="5cef2cbe-3f0e-41f4-a768-604dff8f59a0" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="03a5cde4-c731-46a4-b3f8-2ab38ae6a5f7" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="0e89cc01-b887-47fb-bb5e-79a51e574e8a" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="769f6349-b454-40fb-a2b7-e105cc82b593" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="9dfd7dba-230b-48fa-b7f5-eca2abcf0619" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="78159148-f444-41ab-bc4c-435c3ebf8de1" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="4" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="c53d2b2d-5090-475b-97e5-970ef084e8ab" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/other-residents" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractFormField, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam4.SelectedOption" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="Name" Value="radio-0" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+            <RuleParameter Name="Index" Value="0" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="SelectedCount" Value="0" RecordedValue="0" CorrelationBinding="{{FormPostParam3.SelectedCount}}" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB8jAyvvHne7YYBmQXOoEZiZfq1ajj7pU6ej8upV2t3mdRx9C-sb3nTMismjAxFlqaQZU95UhMsAqRDVRz3SFSQOrILcPr7Dc9R-VDvL57D1ohpAWUaxtOoNzY3pvf91PnI" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="03187d04-4cf1-4f7e-bb43-db1e39aa8725" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="249b7135-6ffb-4ddf-b9d9-d57e33f4d99e" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a9e59568-232c-4101-85b9-6d3102285210" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="928020ff-3f21-4102-9fa1-dca90105b5ab" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="4c3479aa-1929-4fe4-9fa9-4d7c99b969b2" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="a58c40e0-2f8a-4c6d-ac2f-5c5081e2fdd1" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="e5cebe5d-4907-4679-b5e2-98e0516223b0" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/steps" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="SelectedOption" Value="Yes" RecordedValue="Yes" CorrelationBinding="{{FormPostParam4.SelectedOption}}" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB9qumPMg9sqJDJ88RzdDlGKvnYWFgPsvPFY9pYSEq2YcjhlJuxxo0y5bOWVG2J_JwiVuv5HRejLTRg852GBZslqgfkBnJNuMbSxVdUJnRI5eWHATPzrXVmml3jDUDW6gQ0" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="0573382a-beb7-410f-8666-726bd989980c" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="2f3741e2-80c6-498a-99f1-58c8ab199fa4" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="8472176c-6d5c-45bd-a6c5-37f6498660ba" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="c4ae62bb-8e3a-4a91-9e68-bd978c95ef66" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="20a24126-a150-4fb9-8b08-3a29a77b0ae6" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="14df0583-fdc7-47f0-b5de-550c54bf9793" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="2" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="00b0a2ab-c995-48d2-a0c6-08008228c2be" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-name" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Name" Value="Chris" RecordedValue="Chris" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB-aENSTkLCqY8C4ZFwrzgKmeztHefyxK7t8Oyo9hYClFlmtgTuyGR-y4hWgAiTr3aQp-sD8TIg2IBKLwXg7k8RG7eYPyvKpNjd6hWenQGx9J95pfYrF-14mpkRcE9qj8zo" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="e5fc3470-d26e-42ad-8125-18fe6854dcb3" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="859257ab-d1b1-4a1d-8ef8-7ef2b54b2727" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="b60b7cf9-6ddb-4e15-a6ed-5103a64ecc46" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="34829881-677a-4a6c-88b9-af649442ea45" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="9d0d03f7-8830-4c0e-b49e-1b9e0bb42714" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="992c6b69-0784-4308-bb2b-f01b52f3bfaa" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="5" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="a4c4c24b-1956-4100-b756-c3fe8070c764" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-tel" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Telephone" Value="Steve" RecordedValue="Steve" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB9i1o7XJxD0R_LHoam6C50wXZVbreMegN6t-CzQkbcB_j0eDisNtoU7hkaI9Kj3V5Goh4dTljP1YXx1tRkaLQ9nuC_Vy6Z-XsH55HElejFlC-AFk3nDTU5z-QelJ0I5aBk" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="ffd604ae-c83b-46b4-90e2-158dd0664484" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="a42374d2-23a8-44f7-8a8f-311d86d0dc14" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="95e8dc68-9d6b-49a3-afb8-b4321dadd228" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="faa0e07b-7671-408d-8bbe-de5c214817ea" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="8541f29d-5b31-474d-b2d5-0018fafa8a28" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="ceca8942-9c1c-42c7-9f9a-cc86941c8084" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="4" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+    </Request>
+    <Request Method="POST" Guid="3fe3f0e6-43e7-4d31-bba7-aa58e41b9080" Version="1.1" Url="http://planb-demo.azurewebsites.net/Forms/Do" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/AssistedCollection/contact-times" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="InstanceId" Value="{{$HIDDEN1.InstanceId}}" RecordedValue="44D81972F4E2E10A" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="FormRegisterKey" Value="{{$HIDDEN1.FormRegisterKey}}" RecordedValue="AssistedCollection" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="TimeNotes" Value="test reasons" RecordedValue="test reasons" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="__RequestVerificationToken" Value="{{$HIDDEN1.__RequestVerificationToken}}" RecordedValue="CfDJ8CdMWUqpZhVFnslEVOq2FB8DtjE0ecBth7noUnkrGUHPziq3isC16dUrpkP4y2To0uMe8NJpkFCXJVdHvSu3ZOtdm0i6fQJ39aT0u0js2eyv5mGpplFR-jHfimzYpOnFJoMmk_BhcfCerJctUep7HjQ" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="f0d2c0c2-2751-4a75-954c-3c402fd370ce" Version="1.1" Url="https://fonts.googleapis.com/css" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+      <QueryStringParameters>
+        <QueryStringParameter Name="family" Value="Montserrat:400,600,700|Open+Sans:400,700" RecordedValue="Montserrat:400,600,700|Open+Sans:400,700" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="1f9dfb42-969f-472e-94fb-f02f1727d1a5" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="095d18b9-0eea-4c51-9329-7fecbc30af3e" Version="1.1" Url="https://fonts.gstatic.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="36002fa1-1704-432c-8809-8db21d2612bd" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="56b5c676-529d-4f83-a080-bbfe429bc788" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/q2OIMsAtXEkOulLQVdSl024H_cQCpNmkmj7HsMzmiiM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+    </Request>
+    <Request Method="GET" Guid="3b33e1f1-a292-435f-9ead-3d4106e0c117" Version="1.1" Url="https://fonts.gstatic.com/s/montserrat/v12/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://planb-demo.azurewebsites.net/Forms/Do" />
+      </Headers>
+    </Request>
+  </Items>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>
