@@ -59,21 +59,24 @@ namespace PlanB.Models.Forms.Common.Pages
         {
             try
             {
-                WebClient client = new WebClient();
-                string response = client.DownloadString
+                using (WebClient client = new WebClient())
+                {
+                    string response = client.DownloadString
                     ($"http://supermegafastleedsaddresslookup.azurewebsites.net/api/lookup/{PostCode}");
 
-                List<AddressModel> addresses = 
-                    JsonConvert.DeserializeObject<List<AddressModel>>(response);
+                    List<AddressModel> addresses =
+                        JsonConvert.DeserializeObject<List<AddressModel>>(response);
 
-                if (addresses.Count == 0)
-                {
-                    throw new Exception();
+                    if (addresses.Count == 0)
+                    {
+                        throw new Exception();
+                    }
+
+                    AvailableAddresses = addresses
+                        .OrderBy(o => o.SortPath)
+                        .ToArray();
                 }
-
-                AvailableAddresses = addresses
-                    .OrderBy(o => o.SortPath)
-                    .ToArray();
+                
             }
             catch (Exception e)
             {

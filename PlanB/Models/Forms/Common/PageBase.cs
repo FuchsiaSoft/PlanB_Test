@@ -11,9 +11,9 @@ namespace PlanB.Models.Forms.Common
 {
     public abstract class PageBase : IPage
     {
-        protected abstract string _contentMarkdown { get; }
+        protected virtual string _contentMarkdown { get; } = null;
 
-        public abstract string Header { get; }
+        public virtual string Header { get; } = null;
 
         public string Content => Markdown.ToHtml(_contentMarkdown ?? "");
 

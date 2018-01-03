@@ -1,4 +1,5 @@
-﻿using PlanB.Models.Forms.Common;
+﻿using PlanB.Models.Forms.AssistedCollection;
+using PlanB.Models.Forms.Common;
 using PlanB.Models.Forms.MedicalWaste;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace PlanB.Models.Forms
             = new Dictionary<string, Type>(StringComparer.InvariantCultureIgnoreCase)
             {
                 { "MedicalWaste", typeof(MedicalWasteForm) },
-
+                { "AssistedCollection", typeof(AssistedWasteCollectionForm) }
             };
 
 

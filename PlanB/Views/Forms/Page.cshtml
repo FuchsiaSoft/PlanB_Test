@@ -27,7 +27,7 @@
 @*<button class="btn btn-secondary" onclick="window.history.back();">< Go Back</button>*@
 
 @if (Model.Form.GetCurrentPage().GetType().IsSubclassOf(typeof(AddressLookupPageBase)) &&
-          ((AddressLookupPageBase)Model.Form.GetCurrentPage()).ForceManualInput == false)
+        ((AddressLookupPageBase)Model.Form.GetCurrentPage()).ForceManualInput == false)
 {
     AddressLookupPageBase thisPage = Model.Form.GetCurrentPage() as AddressLookupPageBase;
 
@@ -59,12 +59,14 @@
             }
 
             <div>
-                <div class="col-md-3">
-                    <input class="form-control" id="PostCode" type="text"
-                           name="PostCode" value="@thisPage.PostCode" />
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Lookup</button>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" id="PostCode" type="text"
+                               name="PostCode" value="@thisPage.PostCode" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Lookup</button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,7 +74,7 @@
     }
 
     @if (thisPage.AvailableAddresses != null &&
- thisPage.AvailableAddresses.Count() > 0)
+thisPage.AvailableAddresses.Count() > 0)
     {
         using (Html.BeginForm("Do", "Forms", FormMethod.Post))
         {
